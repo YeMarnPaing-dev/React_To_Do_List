@@ -6,8 +6,17 @@ const List = () => {
     
     <div>
         <Form/>
-        List
-        <button className='btn btn-success'>Hello Boostrap</button>
+       <div className='mt-3'>
+         <ol className='list-group'>
+            <div className="list-group-item w-75">
+               <div className="row">
+                 <div className="col">Task Message</div>
+                <div className="col">Delete Icon</div>
+               </div>
+                </div>            
+        </ol>
+       </div>
+      
         </div>
   )
 }
