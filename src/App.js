@@ -1,10 +1,12 @@
 
 import './App.css';
+import List from './components/List';
+
 
 function App() {
   return (
     <div className="App">
-      This is To Do List
+       <List/>
     </div>
   );
 }
