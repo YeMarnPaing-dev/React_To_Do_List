@@ -9,7 +9,7 @@ const Form = () => {
            <input type="text" className='form-control' placeholder='Enter tasks....'/>
         </div>
         <div className="col-3">
-            <button className='btn btn-primary '><i class="fa-solid fa-plus"></i>Add Tasks</button>
+            <button className='btn btn-primary '><i className="fa-solid fa-plus"></i>Add Tasks</button>
         </div>
     </div>
   </>
