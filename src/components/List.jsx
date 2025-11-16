@@ -1,41 +1,15 @@
 import React from 'react'
+import Cart from './Cart'
 
 
-const List = () => {
+const List = ({tasks}) => {
   return (
     
     <div>
       
        <div className='mt-3'>
          <ol className='list-group'>
-            <div className="list-group-item w-100 shadow-sm mb-2">
-               <div className="row">
-                 <div className="col-9 offset-1">To Do List Tasks Message</div>
-                <div className="col-2"><i className="fa-solid fa-trash"></i></div>
-               </div>
-                </div>    
-
-                  <div className="list-group-item w-100 shadow-sm mb-2">
-               <div className="row">
-                 <div className="col-9 offset-1">To Do List Tasks Message</div>
-                <div className="col-2"><i className="fa-solid fa-trash"></i></div>
-               </div>
-                </div>    
-
-                  <div className="list-group-item w-100 shadow-sm mb-2">
-               <div className="row">
-                 <div className="col-9 offset-1">To Do List Tasks Message</div>
-                <div className="col-2"><i className="fa-solid fa-trash"></i></div>
-               </div>
-                </div>    
-
-                  <div className="list-group-item w-100 shadow-sm mb-2">
-               <div className="row">
-                 <div className="col-9 offset-1">To Do List Tasks Message</div>
-                <div className="col-2"><i className="fa-solid fa-trash"></i></div>
-               </div>
-                </div>        
-           
+           <Cart tasks={tasks}/>
         </ol>
        </div>
       
