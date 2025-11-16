@@ -1,11 +1,11 @@
 import React from 'react'
-import Form from './Form'
+
 
 const List = () => {
   return (
     
     <div>
-        <Form/>
+      
        <div className='mt-3'>
          <ol className='list-group'>
             <div className="list-group-item w-100 shadow-sm mb-2">

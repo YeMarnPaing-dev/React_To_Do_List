@@ -1,0 +1,24 @@
+{
+    "todolist":[
+        {
+            "id":1,
+            "task": "Clean Bedroom",
+            "complete":false
+        },
+          {
+            "id":2,
+            "task": "Doing Homework",
+            "complete":true
+        },
+          {
+            "id":3,
+            "task": "Learn React",
+            "complete":false
+        },
+          {
+            "id":4,
+            "task": "Write Coding",
+            "complete":true
+        }
+    ]
+}
