@@ -33,9 +33,16 @@ const submitTask = async (userTask) => {
 
 }
 
-  const deleteTask = (task_id) => {
-     console.log(task_id);
-     
+  const deleteTask = async (task_id) => {
+     try {
+    await api.delete(`/todolist/${task_id}`);
+
+    // Remove the deleted task from state
+    setTasks((prevTasks) => prevTasks.filter((t) => t.id !== task_id));
+  } catch (error) {
+    console.error("Delete error:", error);
+  }
+         
   }   
 
   return (
