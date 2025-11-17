@@ -6,49 +6,59 @@ import api from "./api/apiResource";
 import uuid from "react-uuid";
 
 function App() {
-  const [tasks,setTasks] = useState([])
+  const [tasks, setTasks] = useState([]);
   const fetchData = async () => {
     const res = await api.get("/todolist");
 
-    setTasks(res.data)
-
+    setTasks(res.data);
   };
 
   useEffect(() => {
     fetchData();
   }, []);
 
-const submitTask = async (userTask) => {
-  const data = {
-    id: uuid(),
-    task: userTask,
-    complete: false
+  const submitTask = async (userTask) => {
+    const data = {
+      id: uuid(),
+      task: userTask,
+      complete: false,
+    };
+
+    // send to server
+    await api.post("/todolist", data);
+
+    // update local state
+    setTasks([...tasks, data]);
   };
- 
-  // send to server
-  await api.post("/todolist", data);
-
-  // update local state
-  setTasks([...tasks, data]);
-
-}
 
   const deleteTask = async (task_id) => {
-     try {
-    await api.delete(`/todolist/${task_id}`);
+    try {
+      await api.delete(`/todolist/${task_id}`);
 
-    // Remove the deleted task from state
-    setTasks((prevTasks) => prevTasks.filter((t) => t.id !== task_id));
-  } catch (error) {
-    console.error("Delete error:", error);
-  }
-         
-  }   
+      // Remove the deleted task from state
+      setTasks((prevTasks) => prevTasks.filter((t) => t.id !== task_id));
+    } catch (error) {
+      console.error("Delete error:", error);
+    }
+  };
+
+const updateTask = async (task_id, complete) => {
+  await api.patch(`/todolist/${task_id}`, { complete });
+
+  // update UI immediately
+  setTasks((prev) =>
+    prev.map((item) =>
+      item.id === task_id ? { ...item, complete } : item
+    )
+  );
+};
+
+
 
   return (
     <div className="mx-auto w-50">
-      <Form submitTask={submitTask}/>
-      <List tasks={tasks} deleteTask={deleteTask}/>
+      <Form submitTask={submitTask} />
+      <List tasks={tasks} updateTask={updateTask} deleteTask={deleteTask} />
     </div>
   );
 }
