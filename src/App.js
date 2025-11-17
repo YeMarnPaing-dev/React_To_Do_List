@@ -25,9 +25,11 @@ const submitTask = async (userTask) => {
     complete: false
   };
  
-  const res = await api.post("todolist", data);
+  // send to server
+  await api.post("/todolist", data);
 
-  setTasks(...tasks,res.data)
+  // update local state
+  setTasks([...tasks, data]);
 
   
 
