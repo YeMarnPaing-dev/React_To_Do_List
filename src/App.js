@@ -31,14 +31,17 @@ const submitTask = async (userTask) => {
   // update local state
   setTasks([...tasks, data]);
 
-  
-
 }
+
+  const deleteTask = (task_id) => {
+     console.log(task_id);
+     
+  }   
 
   return (
     <div className="mx-auto w-50">
       <Form submitTask={submitTask}/>
-      <List tasks={tasks}/>
+      <List tasks={tasks} deleteTask={deleteTask}/>
     </div>
   );
 }
